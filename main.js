@@ -1,6 +1,6 @@
 //reading the GPA file and splitting it by line
 var fs = require('fs');
-var grades = fs.readFileSync("majorgpa.txt", 'utf-8').split('\n');
+var grades = fs.readFileSync("mygpa.txt", 'utf-8').split('\n');
 //defining variables for while loop
 let i = 0
 let classes = grades.length
