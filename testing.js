@@ -1,6 +1,23 @@
+//making user's GPA file
+const fs = require('fs')
+const readline = require("readline");
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+rl.question("How many classes do you have?", function(number) {
+while ()
+//trying to make a gpa file by letting them input until it reaches the number of classes they have
+    rl.question("Enter Class Level: ", function(level) {
+      rl.question("Enter Grade: ", function(letter) {
+          fs.writeFile('yourgpa.txt', level +' '+ letter, (err) => {
+             if (err) throw err;
+         })
+         rl.close();
+    });
+});
 //reading the GPA file and splitting it by line
-var fs = require('fs');
-var grades = fs.readFileSync("majorgpa.txt", 'utf-8').split('\n');
+var grades = fs.readFileSync("yourgpa.txt", 'utf-8').split('\n');
 //defining variables for while loop
 let i = 0
 let classes = grades.length
@@ -69,4 +86,4 @@ currentClass = grades[i]
 }
 //printing final GPA
 let GPA = (credits/classes)
-console.log(GPA.toFixed(2));
+console.log(GPA.toFixed(2))})
