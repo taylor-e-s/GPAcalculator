@@ -8,6 +8,7 @@ let credits = 0.0
 let currentClass = grades[0]
 //looks through every class and checks level and grade
 while(i< classes){
+    //CP Classes, checks grades
     if(currentClass.startsWith('C')){
         if(currentClass.charAt(currentClass.length -1) === 'A'){
             credits+=4.0
@@ -21,6 +22,7 @@ while(i< classes){
             credits+=0.0
         }
     }else if(currentClass.startsWith('H')){
+        //Honors Classes, checks grades
         if(currentClass.charAt(currentClass.length -1) === 'A'){
             credits+=4.5
         }else if(currentClass.charAt(currentClass.length -1) === 'B'){
@@ -33,6 +35,7 @@ while(i< classes){
             credits+=0.0
         }
     }else if(currentClass.startsWith('AP+')){
+        //AP+ Classes, checks grades
         if(currentClass.charAt(currentClass.length -1) === 'A'){
             credits+=5.5
         }else if(currentClass.charAt(currentClass.length -1) === 'B'){
@@ -44,7 +47,8 @@ while(i< classes){
         }else{
             credits+=0.0
         }
-    }else{
+    }else if(currentClass.startsWith('AP')){
+        //AP Classes, checks grades
         if(currentClass.charAt(currentClass.length -1) === 'A'){
             credits+=5.0
         }else if(currentClass.charAt(currentClass.length -1) === 'B'){
@@ -56,10 +60,13 @@ while(i< classes){
         }else{
             credits+=0.0
         }
+    }else{
+        console.log('Error: Class not recognized: check text file')
     }
 //adds to one to continue loop and defines new current class
 i += 1
 currentClass = grades[i]
 }
 //printing final GPA
-console.log(credits/classes)
+let GPA = (credits/classes)
+console.log(GPA.toFixed(2));
