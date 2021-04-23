@@ -1,4 +1,5 @@
 //making user's GPA file
+let i = 0
 const fs = require('fs')
 const readline = require("readline");
 const rl = readline.createInterface({
@@ -6,26 +7,25 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 rl.question("How many classes do you have?", function(number) {
-for (i=0; i<number; i++) {
-//trying to make a gpa file by letting them input until it reaches the number of classes they have
-    rl.question("Enter Class Level: ", function(level) {
-      rl.question("Enter Grade: ", function(letter) {
-          fs.writeFile('yourgpa.txt', level +' '+ letter, (err) => {
+for (i=0; i<=number; i++) {
+    rl.question("Enter Class Level and Grade: ", function(Class) {
+          fs.writeFile('yourgpa.txt', Class, (err) => {
              if (err) throw err;
          rl.close();
-    });
 });
+    })}
 //reading the GPA file and splitting it by line
 let grades = fs.readFileSync("yourgpa.txt", 'utf-8').split('\n');
 //defining variables for while loop
-let i = 0
+let j = 0
 let classes = grades.length
 let credits = 0.0
 let currentClass = grades[0]
 //looks through every class and checks level and grade
-while(i< classes){
+if(i=number){
+    while(j< classes){
     //CP Classes, checks grades
-    if(currentClass.startsWith('C')){
+     if(currentClass.startsWith('C')){
         if(currentClass.charAt(currentClass.length -1) === 'A'){
             credits+=4.0
         }else if(currentClass.charAt(currentClass.length -1) === 'B'){
@@ -79,10 +79,12 @@ while(i< classes){
     }else{
         console.log('Error: Class not recognized: check text file')
     }
-//adds to one to continue loop and defines new current class
-i += 1
-currentClass = grades[i]
 }
+//adds to one to continue loop and defines new current class
+j += 1
+currentClass = grades[i]
+
 //printing final GPA
 let GPA = (credits/classes)
-console.log(GPA.toFixed(2))})}})
+console.log(GPA.toFixed(2)
+)}})

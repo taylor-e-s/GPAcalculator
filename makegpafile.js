@@ -5,14 +5,13 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-rl.question("Enter Class Level: ", function(level) {
-    rl.question("Enter Grade: ", function(letter) {
-        fs.writeFile('yourgpa.txt', level +' '+ letter, (err) => {
+rl.question("Enter Class and Grade: ", function(Class) {
+        fs.writeFile('yourgpa.txt', Class, (err) => {
             if (err) throw err;
         })
         rl.close();
     });
-});
+
 
 
 
