@@ -7,12 +7,13 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 rl.question("How many classes do you have?", function(number) {
-for (i=0; i<=number; i++) {
+while(i!=number) {
     rl.question("Enter Class Level and Grade: ", function(Class) {
           fs.writeFile('yourgpa.txt', Class, (err) => {
              if (err) throw err;
          rl.close();
 });
+i++
     })}
 //reading the GPA file and splitting it by line
 let grades = fs.readFileSync("yourgpa.txt", 'utf-8').split('\n');
