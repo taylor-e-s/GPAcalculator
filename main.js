@@ -1,6 +1,7 @@
 //asking for file name
-
-let fileName = ( + '.txt')
+var readline = require('readline-sync');
+var name = readline.question("What is the name of your GPA file? ");
+let fileName = (name + '.txt')
 //reading the GPA file and splitting it by line
 var fs = require('fs');
 var grades = fs.readFileSync(fileName, 'utf-8').split('\n');
