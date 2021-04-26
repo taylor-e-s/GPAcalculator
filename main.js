@@ -1,11 +1,6 @@
 //asking for file name
-const readline = require("readline");
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
 
-let fileName = (result+'.txt')
+let fileName = ( + '.txt')
 //reading the GPA file and splitting it by line
 var fs = require('fs');
 var grades = fs.readFileSync(fileName, 'utf-8').split('\n');
@@ -77,4 +72,4 @@ currentClass = grades[i]
 }
 //printing final GPA
 let GPA = (credits/classes)
-console.log(GPA.toFixed(2))})
+console.log(GPA.toFixed(2))
