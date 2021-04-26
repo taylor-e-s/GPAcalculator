@@ -12,7 +12,7 @@ let credits = 0.0
 let currentClass = grades[0]
 //looks through every class and checks level and grade
 while(i< classes){
-    //CP Classes, checks grades
+    //CP Classes, checks grades by looking the the last character of the string
     if(currentClass.startsWith('C')){
         if(currentClass.charAt(currentClass.length -1) === 'A'){
             credits+=4.0
@@ -26,7 +26,7 @@ while(i< classes){
             credits+=0.0
         }
     }else if(currentClass.startsWith('H')){
-        //Honors Classes, checks grades
+        //Honors Classes, checks grades and adds honors weighted credits
         if(currentClass.charAt(currentClass.length -1) === 'A'){
             credits+=4.5
         }else if(currentClass.charAt(currentClass.length -1) === 'B'){
@@ -39,7 +39,7 @@ while(i< classes){
             credits+=0.0
         }
     }else if(currentClass.startsWith('AP+')){
-        //AP+ Classes, checks grades
+        //AP+ Classes, checks grades and adds credits
         if(currentClass.charAt(currentClass.length -1) === 'A'){
             credits+=5.5
         }else if(currentClass.charAt(currentClass.length -1) === 'B'){
@@ -52,7 +52,7 @@ while(i< classes){
             credits+=0.0
         }
     }else if(currentClass.startsWith('AP')){
-        //AP Classes, checks grades
+        //AP Classes, checks grades and adds credits
         if(currentClass.charAt(currentClass.length -1) === 'A'){
             credits+=5.0
         }else if(currentClass.charAt(currentClass.length -1) === 'B'){
@@ -65,12 +65,13 @@ while(i< classes){
             credits+=0.0
         }
     }else{
+        //Error message if one of the strings is written incorrectly
         console.log('Error: Class not recognized: check text file')
     }
 //adds to one to continue loop and defines new current class
 i += 1
 currentClass = grades[i]
 }
-//printing final GPA
+//printing final rounded GPA
 let GPA = (credits/classes)
 console.log(GPA.toFixed(2))
